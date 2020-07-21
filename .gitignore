@@ -2,6 +2,8 @@ docs
 books
 codility-lesson-solutions-cpp
 
+*.png
+
 ### C++ ###
 # Prerequisites
 *.d
