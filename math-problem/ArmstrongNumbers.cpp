@@ -60,7 +60,7 @@ int main()
     std::cout << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " microseconds" << std::endl;
     };
 
-  // It is not an elegant form.
+  // I think, it is not an elegant form.
   auto printAllArmstrongNumbersWithThreeDigits3 = [](bool aToPrint = false)
     {
     auto start = std::chrono::steady_clock::now();
