@@ -4,28 +4,28 @@
 #define USE_TIMER 1
 
 #if USE_TIMER
-  #define MEASURE_FUNCTION() ScopedTimer timer{__func__}
+  #define MEASURE_FUNCTION() Timer timer{__func__}
 #else
   #define MEASURE_FUNCTION()
 #endif
 
-class ScopedTimer
+class Timer
   {
   public:
     using ClockType = std::chrono::steady_clock;
 
-    ScopedTimer(const char* func)
+    Timer(const char* func)
       :
       theFunctionName{func},
       theStart{ClockType::now()}
       {}
 
-    ScopedTimer(const ScopedTimer&) = delete;
-    ScopedTimer(ScopedTimer&&) = delete;
-    auto operator=(const ScopedTimer&) -> ScopedTimer& = delete;
-    auto operator=(ScopedTimer&&) -> ScopedTimer& = delete;
+    Timer(const Timer&) = delete;
+    Timer(Timer&&) = delete;
+    auto operator=(const Timer&) -> Timer& = delete;
+    auto operator=(Timer&&) -> Timer& = delete;
 
-    ~ScopedTimer()
+    ~Timer()
       {
       using namespace std::chrono;
 
