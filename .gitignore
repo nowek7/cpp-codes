@@ -3,6 +3,8 @@ docs
 books
 codility-lesson-solutions-cpp
 
+*.tex
+
 *.png
 
 ### C++ ###
