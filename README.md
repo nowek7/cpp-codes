@@ -1,8 +1,8 @@
-# C++ codes, algorithms, problems, etc.
+# C++ codes, algorithms, problems, etc
 
-## Summary
+## Problems, tasks, algorithms, new things which I solved, learned or reimplemented
 
-- Algorithms
+- Algorithms && data structures
 - Archives && images && databases
 - Concurrency
 - Cryptography
@@ -28,17 +28,28 @@
   - Perfect numbers
   - Nonquadratic numbers :pencil2:
   - Converting Roman numbers to numerical values
-10. Miscellaneous
-11. Networking and services
-12. Numerical methods
-13. Streams and filesystems
-14. String and regular expressions
-15. Benchmarks
+- Miscellaneous
+  - Complex Number :pencil2:
+  - Vector :pencil2:
+  - Matrix :pencil2:
+  - Timer
+  - Progress Bar using one thread
+- Networking and services
+- Numerical methods
+- Streams and filesystems
+- String and regular expressions
+- Benchmarks
+  - lambda vs std::function
+  - modulor vs bitwise operator
+- Language features
+  - własne zapiski i snippety
+  - Polymorphism
+  - Virtual methods
 
 ---
 
-`TODO: ## How to run?`
-
----
-
-`TODO: ## Docs`
+`TODO: Add license`
+`TODO: Add notes how to compile and run.`
+`TODO: Add docs`
+`TODO: Add hiperlinks to codes.`
+`TODO: Add notes and some texts from myself`
