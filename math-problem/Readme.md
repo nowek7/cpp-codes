@@ -9,10 +9,10 @@
 7. Amicable numbers :pencil2:
 8. Armstrong numbers
 9. Prime factor of a number :pencil2:
-10. Gray code :pencil2:
+10. Gray code
 11. Converting numerical values to Roman
 12. Collatz Sequence
-13. Computing the value of Pi :pencil2:
+13. Computing the value of Pi
 14. Validating ISBNs
 15. Perfect numbers
 16. Nonquadratic numbers :pencil2:
