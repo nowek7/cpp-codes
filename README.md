@@ -45,15 +45,7 @@
 
 ---
 
-<<<<<<< HEAD
-- `TODO: Add license`
-- `TODO: Add notes how to compile and run.`
-- `TODO: Add docs`
-- `TODO: Add hiperlinks to codes.`
-- `TODO: Add notes and some texts from myself`
-=======
 `TODO: Add license`
 `TODO: Add charts to benchmarks.`
 `TODO: Add notes how to compile and run.`
 `TODO: Add notes and some texts from myself`
->>>>>>> origin/math-problem
