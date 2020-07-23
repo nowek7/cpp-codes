@@ -10,46 +10,42 @@
 - Date and time
 - Design patterns
 - Language features
-- Math problem
-  - Sum of naturals divisible two factors
-  - Greatest common divisor
-  - Least common divisor
+- [Math problem](math-problem/)
+  - [Sum of naturals divisible two factors](math-problem/SumOfNaturalsDivisibleByTwoFactors.cpp)
+  - [Greatest common divisor](math-problem/GCD.cpp)
+  - [Least common divisor](math-problem/LCMNumbers.cpp)
   - Largest prime smaller than given number :pencil2:
   - Sexy prime numbers :pencil2:
-  - Abundant numbers :pencil2:
-  - Amicable numbers :pencil2:
-  - Armstrong numbers
+  - [Abundant numbers](math-problem/AbudantNumbers.cpp)
+  - [Amicable numbers](math-problem/AmicableNumbers.cpp)
+  - [Armstrong numbers](math-problem/ArmstrongNumbers.cpp)
+  - [Perfect numbers](math-problem/PerfectNumber/PerfectNumbers.cpp)
   - Prime factor of a number :pencil2:
-  - Gray code :pencil2:
-  - Converting numerical values to Roman
-  - Collatz Sequence
-  - Computing the value of Pi :pencil2:
-  - Validating ISBNs
-  - Perfect numbers
+  - [Gray code](math-problem/GrayCode.cpp)
+  - [Collatz Sequence](math-problem/CollatzNumber.cpp)
+  - [Computing the value of Pi](math-problem/ComputeValueOfPi.cpp)
+  - [Validating ISBNs](math-problem/ValidateISBN.cpp)
   - Nonquadratic numbers :pencil2:
-  - Converting Roman numbers to numerical values
-- Miscellaneous
-  - Complex Number :pencil2:
-  - Vector :pencil2:
-  - Matrix :pencil2:
-  - Timer
-  - Progress Bar using one thread
+  - [Converting numerical values to Roman](math-problem/NumberToRoman.cpp)
+  - [Converting Roman numbers to numerical values](math-problem/RomanToNumber.cpp)
+- [Miscellaneous](miscellaneous/)
+  - [Complex Number](miscellaneous/ComplexNumber.cpp) :pencil2: (TODO: Do some refactoring!)
+  - [Vector](miscellaneous/vector/Vector.hpp) :pencil2: (TODO: Do some refactoring!)
+  - [Matrix](miscellaneous/matrix/Matrix.hpp) :pencil2: (TODO: Do some refactoring!)
+  - [Timer](miscellaneous/Timer.cpp)
+  - [Progress Bar using one thread](miscellaneous/progress-bar/ProgressBar.cpp)
 - Networking and services
 - Numerical methods
 - Streams and filesystems
 - String and regular expressions
-- Benchmarks
-  - lambda vs std::function
-  - modulor vs bitwise operator
-- Language features
-  - własne zapiski i snippety
-  - Polymorphism
-  - Virtual methods
+- [Benchmarks](benchmarks/)
+  - [lambda vs std::function](benchmarks/LambdaVsStdFunction.cpp)
+  - [modulor vs bitwise operator](benchmarks/ModuloVsBitwiseOperator.cpp)
+- [Language features](language-features/)
 
 ---
 
 `TODO: Add license`
+`TODO: Add charts to benchmarks.`
 `TODO: Add notes how to compile and run.`
-`TODO: Add docs`
-`TODO: Add hiperlinks to codes.`
 `TODO: Add notes and some texts from myself`
