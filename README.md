@@ -9,18 +9,18 @@
 - Data serialization
 - Date and time
 - Design patterns
-- Language features
+- [Language features](language-features/)
 - [Math problem](math-problem/)
   - [Sum of naturals divisible two factors](math-problem/SumOfNaturalsDivisibleByTwoFactors.cpp)
   - [Greatest common divisor](math-problem/GCD.cpp)
   - [Least common divisor](math-problem/LCMNumbers.cpp)
-  - Largest prime smaller than given number :pencil2:
-  - Sexy prime numbers :pencil2:
+  - [Largest prime smaller than given number](math-problem/LargestPrimeSmallerThanGivenNumber.cpp)
+  - [Sexy prime numbers](math-problem/SexyPrimeNumbers.cpp)
   - [Abundant numbers](math-problem/AbudantNumbers.cpp)
   - [Amicable numbers](math-problem/AmicableNumbers.cpp)
   - [Armstrong numbers](math-problem/ArmstrongNumbers.cpp)
   - [Perfect numbers](math-problem/PerfectNumber/PerfectNumbers.cpp)
-  - Prime factor of a number :pencil2:
+  - [Prime factor of a number](math-problem/PrimeFactorsNumber.cpp)
   - [Gray code](math-problem/GrayCode.cpp)
   - [Collatz Sequence](math-problem/CollatzNumber.cpp)
   - [Computing the value of Pi](math-problem/ComputeValueOfPi.cpp)
@@ -41,7 +41,6 @@
 - [Benchmarks](benchmarks/)
   - [lambda vs std::function](benchmarks/LambdaVsStdFunction.cpp)
   - [modulor vs bitwise operator](benchmarks/ModuloVsBitwiseOperator.cpp)
-- [Language features](language-features/)
 
 ---
 
