@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 
+// Monte Carlo method.
 template <typename E = std::mt19937, typename D = std::uniform_real_distribution<>>
 double computePi(E &engine, D &dist, int const samples = 1000000)
   {
