@@ -10,13 +10,13 @@
 - Date and time
 - Design patterns
 - [Language features](language-features/)
-  - [IPv4 protocol](language-features/IPv4Protocol.cpp) :pencil2:
-  - [Enumerate IPv4](language-features/EnumarateIPv4.cpp) :pencil2:
+  - [IPv4 protocol](language-features/IPv4Protocol.cpp)
+  - [Enumerate IPv4](language-features/EnumarateIPv4.cpp)
   - [Temparatures - literals string](language-features/LiteralsTemperatures.cpp) :pencil2:
   - [Some system handle wrapper](language-features/SystemHandleWrapper.cpp) :pencil2:
   - [Some operations on 2D array](language-features/Operations2DArray.cpp) :pencil2:
-  - [Variadic templates on container](language-features/UsageVariadicTemplatesOnContainer.cpp) :pencil2:
-  - [Usage compare function in variadic templates](language-features/CompareVariadicTemplate.cpp) :pencil2:
+  - [Variadic templates on container](language-features/UsageVariadicTemplatesOnContainer.cpp)
+  - [Usage compare function in variadic templates](language-features/CompareVariadicTemplate.cpp)
 - [Math problem](math-problem/)
   - [Sum of naturals divisible two factors](math-problem/SumOfNaturalsDivisibleByTwoFactors.cpp)
   - [Greatest common divisor](math-problem/GCD.cpp)
@@ -48,9 +48,9 @@
   - [Conversion binary to string](string-and-regular-expression/BinaryToString.cpp)
   - [Conversion string to binary](string-and-regular-expression/StringToBinary.cpp) :pencil2:
   - [Joining string by delimiter](string-and-regular-expression/JoiningStringByDelimiter.cpp)
-  - [Split string](string-and-regular-expression/SplitString.cpp) :pencil2:
-  - [Extract url address](string-and-regular-expression/ExtractingUrlAddress.cpp) :pencil2:
-  - [Capitalize](string-and-regular-expression/Capitalize.cpp) :pencil2:
+  - [Split string](string-and-regular-expression/SplitString.cpp)
+  - [Extract url address](string-and-regular-expression/ExtractingUrlAddress.cpp)
+  - [Capitalize](string-and-regular-expression/Capitalize.cpp)
   - [Convert displaying date string](string-and-regular-expression/ConvertDateString.cpp) :pencil2:
   - [Validate license plate](string-and-regular-expression/ValidateLicense.cpp) :pencil2:
 - [Benchmarks](benchmarks/)
