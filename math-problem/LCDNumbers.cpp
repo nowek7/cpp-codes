@@ -1,0 +1,1 @@
+Algorytm wyznaczający najmniejszy wspólny dzielnik elementów tablicy składającej się z k liczb naturalnych.
