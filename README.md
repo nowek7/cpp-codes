@@ -1,8 +1,9 @@
 # C++ codes, algorithms, problems, etc
 
-## Problems, tasks, algorithms, new things which I solved, learned or reimplemented
+## Problems, tasks, algorithms, new things which I solved, learned or implemented/reimplemented
 
-- Algorithms && data structures
+- Algorithms && data structures[]
+  - [Sorts][algorithms-and-data-structures/sorts]
 - Archives && images && databases
 - Concurrency
 - Cryptography
@@ -10,11 +11,12 @@
 - Date and time
 - Design patterns
 - [Language features](language-features/)
+  - [Bitset wrapper](language-features/BitsetWrapper.cpp)
   - [IPv4 protocol](language-features/IPv4Protocol.cpp)
   - [Enumerate IPv4](language-features/EnumarateIPv4.cpp)
-  - [Temparatures - literals string](language-features/LiteralsTemperatures.cpp) :pencil2:
-  - [Some system handle wrapper](language-features/SystemHandleWrapper.cpp) :pencil2:
-  - [Some operations on 2D array](language-features/Operations2DArray.cpp) :pencil2:
+  - [Temparatures - literals string](language-features/LiteralsTemperatures.cpp)
+  - [Some system handle wrapper](language-features/SystemHandleWrapper.cpp)
+  - [Some operations on 2D array](language-features/Operations2DArray.cpp)
   - [Variadic templates on container](language-features/UsageVariadicTemplatesOnContainer.cpp)
   - [Usage compare function in variadic templates](language-features/CompareVariadicTemplate.cpp)
 - [Math problem](math-problem/)
@@ -22,6 +24,7 @@
   - [Greatest common divisor](math-problem/GCD.cpp)
   - [Least common divisor](math-problem/LCMNumbers.cpp)
   - [Largest prime smaller than given number](math-problem/LargestPrimeSmallerThanGivenNumber.cpp)
+  - [LCD numbers](math-problem/LCDNumbers.cpp)
   - [Sexy prime numbers](math-problem/SexyPrimeNumbers.cpp)
   - [Abundant numbers](math-problem/AbudantNumbers.cpp)
   - [Amicable numbers](math-problem/AmicableNumbers.cpp)
@@ -36,14 +39,15 @@
   - [Converting numerical values to Roman](math-problem/NumberToRoman.cpp)
   - [Converting Roman numbers to numerical values](math-problem/RomanToNumber.cpp)
 - [Miscellaneous](miscellaneous/)
-  - [Complex Number](miscellaneous/ComplexNumber.cpp) :pencil2: (TODO: Do some refactoring!)
-  - [Vector](miscellaneous/vector/Vector.hpp) :pencil2: (TODO: Do some refactoring!)
-  - [Matrix](miscellaneous/matrix/Matrix.hpp) :pencil2: (TODO: Do some refactoring!)
+  - [Complex Number](miscellaneous/ComplexNumber.cpp)
+  - [Vector](miscellaneous/vector/Vector.hpp)
+  - [Matrix](miscellaneous/matrix/Matrix.hpp)
   - [Timer](miscellaneous/Timer.cpp)
   - [Progress Bar using one thread](miscellaneous/progress-bar/ProgressBar.cpp)
 - Networking and services
 - Numerical methods
 - Streams and filesystems
+  - [Show directory structure](streams-and-filesystems/ShowDirectoriesStructure.cpp)
 - String and regular expressions
   - [Conversion binary to string](string-and-regular-expression/BinaryToString.cpp)
   - [Conversion string to binary](string-and-regular-expression/StringToBinary.cpp) :pencil2:
@@ -61,5 +65,4 @@
 
 `TODO: Add license`
 `TODO: Add charts to benchmarks.`
-`TODO: Add notes how to compile and run.`
 `TODO: Add notes and some texts from myself`

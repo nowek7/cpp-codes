@@ -31,7 +31,7 @@ class Vector
 
     template<typename T>
     Vector operator*(const T aScalar);
-    
+
     template<typename T>
     Vector &operator*=(const T aScalar);
 
@@ -71,7 +71,7 @@ Vector::Vector(const Vector &aOther)
   {
   theCoordinates.clear();
   auto otherCoordinates = aOther.getCoordinates();
- 
+
   std::copy(otherCoordinates.begin(), otherCoordinates.end(), std::back_inserter(theCoordinates));
   theLength = aOther.getLength();
   }
@@ -79,7 +79,7 @@ Vector::Vector(const Vector &aOther)
 Vector &Vector::operator=(const Vector &aOther)
   {
   auto otherCoordinates = aOther.getCoordinates();
-  
+
   theCoordinates.clear();
   std::copy(otherCoordinates.begin(), otherCoordinates.end(), std::back_inserter(theCoordinates));
   theLength = aOther.getLength();
@@ -96,7 +96,7 @@ inline Vector Vector::operator+(const Vector &aOther)
   std::vector<double> vec;
   for (auto i = 0; i < theCoordinates.size(); i++)
     vec.push_back(theCoordinates[i] + otherCoordinates[i]);
-  
+
   return Vector(vec);
   }
 
@@ -199,7 +199,7 @@ Vector &Vector::operator/=(const T aScalar)
     theCoordinates[i] /= aScalar;
 
   computeLength();
-  
+
   return *this;
   }
 
@@ -220,19 +220,7 @@ inline bool Vector::operator==(const Vector &aOther)
 
 inline bool Vector::operator!=(const Vector &aOther)
   {
-  auto otherCoordinates = aOther.getCoordinates();
-  if (theCoordinates.size() == otherCoordinates.size())
-    {
-    for (auto i = 0; i < theCoordinates.size(); i++)
-      {
-      if (theCoordinates[i] != otherCoordinates[i])
-        return true;
-      }
-
-    return false;
-    }
-
-  return true;
+  return !(*this == aOther);
   }
 
 inline std::vector<double> Vector::getCoordinates() const

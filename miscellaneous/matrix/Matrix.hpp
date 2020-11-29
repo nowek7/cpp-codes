@@ -311,18 +311,7 @@ inline bool Matrix::operator==(Matrix &aOther)
 
 inline bool Matrix::operator!=(Matrix &aOther)
   {
-  if ((theRowsNum == aOther.getRowsNum()) && (theColumnsNum == aOther.getColumnsNum()))
-    {
-    for (unsigned int i = 0; i < theRowsNum; i++)
-      {
-      auto row = aOther.getRow(i);
-      auto res = std::equal(row, row + theColumnsNum, theRows[i], theRows[i] + theColumnsNum);
-      if (res)
-        return !res;
-      }
-    }
-
-  return true;
+  return !(*this == aOther);
   }
 
 inline unsigned int Matrix::getRowsNum() const
