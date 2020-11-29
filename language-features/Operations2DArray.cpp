@@ -120,7 +120,6 @@ int main()
     Array2D<int, 2, 3> container{10, 20, 30, 40, 50, 60};
     printArray2D(container);
 
-    // TODO: Test how it works?
     Array2D<int, 2, 3> container2(std::move(container));
     printArray2D(container2);
     }

@@ -73,7 +73,6 @@
 #include <vector>
 #include <stdexcept>
 
-// TODO: Learn something about traits.
 template <typename Traits>
 class UniqueHandle
   {
@@ -94,7 +93,7 @@ class UniqueHandle
     UniqueHandle &operator=(UniqueHandle &&aOther) noexcept
       {
       if (this != &aOther)
-        reset(other.release());
+        reset(aOther.release());
 
       return *this;
       }
