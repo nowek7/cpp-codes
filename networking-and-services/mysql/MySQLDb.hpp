@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DatabaseConfig.hpp"
+#include "DbConfig.hpp"
 
 #include <optional>
 #include <mysql/mysql.h>
