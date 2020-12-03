@@ -45,6 +45,8 @@
   - [Timer](miscellaneous/Timer.cpp)
   - [Progress Bar using one thread](miscellaneous/progress-bar/ProgressBar.cpp)
 - Networking and services
+  - [Simple MySQL wrapper](networking-and-services/mysql/)
+  - [TCP stuff](networking-and-services/tcp)
 - Numerical methods
 - Streams and filesystems
   - [Show directory structure](streams-and-filesystems/ShowDirectoriesStructure.cpp)
