@@ -1,7 +1,6 @@
 #pragma once
 
 #include <chrono>
-#include <iostream>
 
 namespace TIMER
   {
@@ -27,7 +26,7 @@ namespace TIMER
 
         auto stop = ClockType::now();
         auto ms = duration_cast<std::chrono::milliseconds>(stop - theStart).count();
-        std::cout << ms << " ms " << theFunctionName << "\n";
+        printf("%s -> %i ms\n", theFunctionName, static_cast<int>(ms));
         }
 
     private:
