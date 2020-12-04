@@ -39,7 +39,10 @@ void MySQLDb::connect(const ReDatabaseConfig &aConfig)
                              host.c_str(), user.c_str(), password.c_str(), database.c_str(), port,
                              NULL, CLIENT_MULTI_STATEMENTS);
   if (!theDb)
+    {
+    close();
     throw std::logic_error("Can't connect to database\n");
+    }
   }
 
 bool MySQLDb::isConnected() const
@@ -51,7 +54,10 @@ void MySQLDb::startTransaction()
   {
   const int result = mysql_query(theDb, "start transaction;");
   if (result != 0)
+    {
+    close();
     throw std::logic_error("Can't start transaction\n");
+    }
   }
 
 std::optional<MYSQL_RES*> MySQLDb::query(std::string &aSql)
@@ -65,21 +71,30 @@ std::optional<MYSQL_RES*> MySQLDb::query(std::string &aSql)
     return mysql_store_result(theDb);
     }
   else
+    {
+    close();
     throw std::logic_error(mysql_error(theDb));
+    }
   }
 
 void MySQLDb::commit()
   {
   const int result = mysql_commit(theDb);
   if (result != 0)
+    {
+    close();
     throw std::logic_error("Can't commit transaction\n");
+    }
   }
 
 void MySQLDb::rollback()
   {
   const int result = mysql_rollback(theDb)
   if (result != 0)
+    {
+    close();
     throw std::logic_error("Can't rollback transaction\n");
+    }
   }
 
 std::string MySQLDb::getCurrentTimestamp()
