@@ -1,18 +1,21 @@
 #include "TCPServer.hpp"
-#include "Socket.hpp"
+#include "./../helpers/Socket.hpp"
 
-#include <numeric>
 #include <chrono>
+#include <numeric>
 #include <stdexcept>
-#include <thread>
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <sys/types.h>
 
 using namespace std::chrono_literals;
 
-TCPServer::TCPServer()
+TCPServer::TCPServer(const TCPAddress &aAddress)
+  :
+  theAddress(aAddress)
   {
-  theAddress.theHost = TCP_SERVER_HOST;
-  theAddress.thePort = TCP_SERVER_PORT;
-
   bool opened = open();
   if (!opened)
     throw std::runtime_error("Cannot open TCP server!");
@@ -33,13 +36,16 @@ void TCPServer::close()
   ::close(theListeningSocket);
   }
 
-void TCPServer::resetClients()
+void TCPServer::removeClients()
   {
   theClients.clear();
   }
 
 bool TCPServer::open()
   {
+  if (!theAddress.isSet())
+    throw std::logic_error("Empty server address!");
+
   int sock = -1;
   sockaddr_in sockAddress{ 0 };
   int optval = 1;
@@ -47,7 +53,7 @@ bool TCPServer::open()
   const char* host = theAddress.theHost.c_str();
   const uint16_t port = theAddress.thePort;
 
-  sock = static_cast<int>(socket(AF_INET, SOCK_STREAM, IPPROTO_TCP));
+  sock = socket(AF_INET, SOCK_STREAM, 0);
 
   printf("Opening listening port at %s:%i \n", host, port);
   if (sock < 0)
@@ -76,14 +82,14 @@ bool TCPServer::open()
   if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<char*>(&optval), sizeof(optval)) != 0)
     {
     printf("Setsockopt - setting SO_REUSEADDR\n");
-    closesocket(sock);
+    ::close(sock);
     return false;
     }
 
   if (setsockopt(sock, SOL_SOCKET, SO_KEEPALIVE, reinterpret_cast<char*>(&optval), sizeof(optval)) != 0)
     {
     printf("Setsockopt - setting SO_KEEPALIVE\n");
-    closesocket(sock);
+    ::close(sock);
     return false;
     }
 
@@ -91,7 +97,7 @@ bool TCPServer::open()
   if (bind(sock, reinterpret_cast<struct sockaddr*>(&sockAddress), sizeof(sockAddress)) < 0)
     {
     printf("Can't bind the socket to the address\n");
-    closesocket(sock);
+    ::close(sock);
     return false;
     }
 
@@ -99,7 +105,7 @@ bool TCPServer::open()
   if (listen(sock, SOMAXCONN) < 0)
     {
     printf("Can't listen\n");
-    closesocket(sock);
+    ::close(sock);
     return false;
     }
 
@@ -131,7 +137,7 @@ void TCPServer::handleAcceptingConnections()
       {
       sockaddr_in sockAddress{};
       int length = sizeof(sockAddress);
-      int fd = static_cast<int>(::accept(theListeningSocket, reinterpret_cast<sockaddr*>(&sockAddress), &length));
+      int fd = accept(theListeningSocket, reinterpret_cast<sockaddr*>(&sockAddress), reinterpret_cast<socklen_t*>(&length));
       if (fd == -1)
         continue;
 
