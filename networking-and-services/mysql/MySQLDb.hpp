@@ -11,10 +11,11 @@ class MySQLDb
     static void freeResults(MYSQL_RES *aResults);
 
   public:
-    MySQLDb() = default;
-    MySQLDb(const DatabaseConfig &aConfig);
+    MySQLDb();
     ~MySQLDb();
 
+    void close();
+    void connect(const ReDatabaseConfig &aConfig);
     bool isConnected() const;
     void startTransaction();
     std::optional<MYSQL_RES*> query(std::string &aSql);

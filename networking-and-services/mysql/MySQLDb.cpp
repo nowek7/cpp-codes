@@ -12,25 +12,34 @@ MySQLDb::MySQLDb(const ReMySQLDbConfig &aConfig)
   theDb = mysql_init(theDb);
   if (!theDb)
     throw std::logic_error("Can't init mysql object");
-
-  if (!aConfig.isSet())
-    throw std::logic_error("Empty MySQLDb config");
-
-  const std::string &host = aConfig.theHost;
-  const std::string &user = aConfig.theUser;
-  const std::string &password = aConfig.thePassword;
-  const std::string &MySQLDb = aConfig.theMySQLDb;
-  const int &port = aConfig.thePort;
-  theDb = mysql_real_connect(theDb,
-                             host.c_str(), user.c_str(), password.c_str(), MySQLDb.c_str(), port,
-                             NULL, CLIENT_MULTI_STATEMENTS);
-  if (!theDb)
-    throw std::logic_error("Can't connect to MySQLDb");
   }
 
 MySQLDb::~MySQLDb()
   {
-  mysql_close(theDb);
+  close();
+  }
+
+void MySQLDb::close()
+  {
+  if (theDb)
+    mysql_close(theDb);
+  }
+
+void MySQLDb::connect(const ReDatabaseConfig &aConfig)
+  {
+  if (!aConfig.isSet())
+    throw std::logic_error("Empty database config\n");
+
+  const std::string &host = aConfig.theHost;
+  const std::string &user = aConfig.theUser;
+  const std::string &password = aConfig.thePassword;
+  const std::string &database = aConfig.theDatabase;
+  const int &port = aConfig.thePort;
+  theDb = mysql_real_connect(theDb,
+                             host.c_str(), user.c_str(), password.c_str(), database.c_str(), port,
+                             NULL, CLIENT_MULTI_STATEMENTS);
+  if (!theDb)
+    throw std::logic_error("Can't connect to database\n");
   }
 
 bool MySQLDb::isConnected() const
