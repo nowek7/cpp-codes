@@ -35,7 +35,7 @@
   - [Collatz Sequence](math-problem/CollatzNumber.cpp)
   - [Computing the value of Pi](math-problem/ComputeValueOfPi.cpp)
   - [Validating ISBNs](math-problem/ValidateISBN.cpp)
-  - Nonquadratic numbers :pencil2:
+  - [Quadratic number as result of multiplying two numbers in sequence](math-problem/QuadraticNumber.cpp)
   - [Converting numerical values to Roman](math-problem/NumberToRoman.cpp)
   - [Converting Roman numbers to numerical values](math-problem/RomanToNumber.cpp)
 - [Miscellaneous](miscellaneous/)
