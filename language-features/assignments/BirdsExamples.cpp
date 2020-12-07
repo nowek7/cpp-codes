@@ -1,24 +1,28 @@
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <string>
 
 class Bird
   {
+  std::string theString;
+
   public:
-    Bird()
-      {}
+    Bird() {}
 
-    // Copy assign
-    auto setSong(const std::string &aString) { theString = aString; }
+    auto setSong(const std::string &aString) -> void
+      {
+      printf("Copy assignment\n");
+      theString = aString;
+      }
 
-    // Move assign.
-    auto setSong(std::string &&aString) { theString = std::move(aString); }
-
-    // Fields.
-    std::string theString;
+    auto setSong(std::string &&aString) -> void
+      {
+      printf("Move assignment\n");
+      theString = std::move(aString);
+      }
   };
 
-auto makeRoastSong()
+auto makeRoastSong() -> std::string
   {
   return std::string{"I'm a Roast"};
   }
@@ -28,20 +32,20 @@ int main()
   auto bird = Bird();
   auto song = std::string("Coco");
 
-  // Copy-assigned
+  // Copy assignment
   bird.setSong(song);
 
-  // Move-assigned
+  // Move assignment
   bird.setSong(std::move(song));
 
-  // Copy-assigned
+  // Move assigned
   bird.setSong(makeRoastSong());
 
-  // Copy-assigned
+  // Copy assignment
   auto roastSong = makeRoastSong();
   bird.setSong(roastSong);
 
-  // Copy-assigned
-  const auto roastSong = makeRoastSong();
-  bird.setSong(std::move(roastSong));
+  // Move assignment
+  auto moveRoastSong = makeRoastSong();
+  bird.setSong(std::move(moveRoastSong));
   }
