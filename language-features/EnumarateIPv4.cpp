@@ -169,6 +169,8 @@ int main()
     for (IPv4 ipv4 = ipv4_1; ipv4 <= ipv4_2; ipv4++)
       std::cout << ipv4 << std::endl;
     }
-    else
-      std::cerr << "invalid range!" << std::endl;
+  else
+    std::cerr << "invalid range!" << std::endl;
+
+  return 0;
   }
