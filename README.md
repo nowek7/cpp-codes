@@ -5,11 +5,15 @@
 - Algorithms && data structures[]
   - [Sorts][algorithms-and-data-structures/sorts]
 - Archives && images && databases
+  - [Simple MySQL wrapper](networking-and-services/mysql/)
 - Concurrency
 - Cryptography
 - Data serialization
 - Date and time
 - Design patterns
+  - [CRTP](design-patterns/CRTP.cpp)
+  - [Factory](design-patterns/Factory.cpp)
+  - [Singleton - antipattern?!](design-patterns/Singleton.cpp)
 - [Language features](language-features/)
   - [Bitset wrapper](language-features/BitsetWrapper.cpp)
   - [IPv4 protocol](language-features/IPv4Protocol.cpp)
@@ -45,9 +49,7 @@
   - [Timer](miscellaneous/Timer.cpp)
   - [Progress Bar using one thread](miscellaneous/progress-bar/ProgressBar.cpp)
 - Networking and services
-  - [Simple MySQL wrapper](networking-and-services/mysql/)
   - [TCP stuff](networking-and-services/tcp)
-- Numerical methods
 - Streams and filesystems
   - [Show directory structure](streams-and-filesystems/ShowDirectoriesStructure.cpp)
 - String and regular expressions
@@ -60,11 +62,3 @@
   - [Convert displaying date string](string-and-regular-expression/ConvertDateString.cpp) :pencil2:
   - [Validate license plate](string-and-regular-expression/ValidateLicense.cpp) :pencil2:
 - [Benchmarks](benchmarks/)
-  - [lambda vs std::function](benchmarks/LambdaVsStdFunction.cpp)
-  - [modulor vs bitwise operator](benchmarks/ModuloVsBitwiseOperator.cpp)
-
----
-
-`TODO: Add license`
-`TODO: Add charts to benchmarks.`
-`TODO: Add notes and some texts from myself`
