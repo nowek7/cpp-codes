@@ -54,10 +54,7 @@ void MySQLDb::startTransaction()
   {
   const int result = mysql_query(theDb, "start transaction;");
   if (result != 0)
-    {
-    close();
     throw std::logic_error("Can't start transaction\n");
-    }
   }
 
 std::optional<MYSQL_RES*> MySQLDb::query(std::string &aSql)
@@ -65,36 +62,30 @@ std::optional<MYSQL_RES*> MySQLDb::query(std::string &aSql)
   const int success = mysql_real_query(theDb, aSql.c_str(), static_cast<unsigned long>(aSql.length()));
   if (success == 0)
     {
-    if (mysql_field_count(theDb) == 0)
+    MYSQL_RES *result = mysql_store_result(theDb);
+    if (result && mysql_num_fields(result) > 0 && mysql_num_rows(result) > 0)
+      return result;
+    else
       return {};
 
     return mysql_store_result(theDb);
     }
   else
-    {
-    close();
     throw std::logic_error(mysql_error(theDb));
-    }
   }
 
 void MySQLDb::commit()
   {
   const int result = mysql_commit(theDb);
   if (result != 0)
-    {
-    close();
     throw std::logic_error("Can't commit transaction\n");
-    }
   }
 
 void MySQLDb::rollback()
   {
   const int result = mysql_rollback(theDb)
   if (result != 0)
-    {
-    close();
     throw std::logic_error("Can't rollback transaction\n");
-    }
   }
 
 std::string MySQLDb::getCurrentTimestamp()
