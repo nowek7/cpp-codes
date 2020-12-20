@@ -2,8 +2,14 @@
 #include <vector>
 #include <regex>
 #include <string_view>
+#include <unordered_map>
 
-// TODO: Add US and EU variants.
+std::unordered_map<std::string_view, std::string> regexPlates
+  {
+    { "PL", R"(([A-Z]{2,3})\s([A-Z0-9]{4,5}))"},
+    { "US", R"([A-Z]{3}-[A-Z]{2} \d{3,4})"}
+  };
+
 bool validateLicensePlateFormat(std::string_view aPlate)
   {
   std::regex rx(R"([A-Z]{3}-[A-Z]{2} \d{3,4})");
