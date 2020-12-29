@@ -6,8 +6,8 @@ class Singleton
   private:
     Singleton() {}
   public:
-    Singleton(Singleton const &) = delete;
-    Singleton& operator=(Singleton const&) = delete;
+    Singleton(const Singleton&) = delete;
+    Singleton& operator=(const Singleton&) = delete;
 
     static Singleton& instance()
       {

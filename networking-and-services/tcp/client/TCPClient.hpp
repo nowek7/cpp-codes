@@ -20,17 +20,18 @@ class TCPClient
     bool isConnected() const { return theFd != -1; };
     ConnectionState updateState();
 
-    void send();
+    void write();
+    void read();
 
     int getFd() const;
 
   private:
     int theFd;
-    ReTCPAddress theAddress;
+    TCPAddress theAddress;
     ConnectionState theState = ConnectionState::CLOSED;
 
-    TCPClient(const ReTCPClient&) = delete;
-    TCPClient& operator=(const ReTCPClient&) = delete;
+    TCPClient(const TCPClient&) = delete;
+    TCPClient& operator=(const TCPClient&) = delete;
 
     void close();
     void reset();

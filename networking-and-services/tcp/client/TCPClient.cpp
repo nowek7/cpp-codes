@@ -1,7 +1,13 @@
 #include "TCPClient.hpp"
+#include "Socket.hpp"
 
 #include <stdexcept>
-#include <sys/poll.h>
+
+#include <netdb.h>
+#include <poll.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 
@@ -10,7 +16,7 @@ TCPClient::TCPClient()
   reset();
 
   theAddress.theHost = "localhost";
-  theAddress.thePort = "3000";
+  theAddress.thePort = 3000;
   }
 
 TCPClient::~TCPClient()
@@ -40,8 +46,8 @@ bool TCPClient::connect()
     }
 
   int sock = -1;
-  struct addrinfo hints { 0 };
-  struct addrinfo* server;
+  struct addrinfo hints = { 0 };
+  struct addrinfo *server;
   auto port = theAddress.thePort;
 
   sock = static_cast<int>(socket(AF_INET, SOCK_STREAM, IPPROTO_TCP));
@@ -58,7 +64,7 @@ bool TCPClient::connect()
   int result = getaddrinfo(theAddress.theHost.c_str(), std::to_string(port).c_str(), &hints, &server);
   if (result != 0)
     {
-    ::closesocket(sock);
+    ::close(sock);
     freeaddrinfo(server);
     }
 
@@ -109,7 +115,7 @@ TCPClient::ConnectionState TCPClient::updateState()
       if (error == 0)
         {
         theState = ConnectionState::ESTABLISHED;
-        return UpdateState::eEstablished;
+        return ConnectionState::ESTABLISHED;
         }
       else if (error != EINPROGRESS)
         {
@@ -136,7 +142,7 @@ TCPClient::ConnectionState TCPClient::updateState()
       // Something logic to read data from server.
 
       theState = ConnectionState::ESTABLISHED;
-      return ConnectionState::ESTABLISHED
+      return ConnectionState::ESTABLISHED;
       }
     }
 
@@ -160,7 +166,24 @@ int TCPClient::getFd() const
 void TCPClient::write()
   {
   std::string payload = "TODO";
-  const int result = ReSocket::send(theFd, payload.c_str(), static_cast<int>(rawPayload.size()));
+  const int result = Socket::send(theFd, payload.c_str(), static_cast<int>(payload.size()));
   if (result < 0)
     close();
+  }
+
+void TCPClient::read()
+  {
+  int size = 0;
+  int result = Socket::receive(theFd, reinterpret_cast<char*>(&size), sizeof(size));
+  if (result < 0)
+    close();
+
+  char *buffer = new char[size];
+  int result = Socket::receive(theFd, buffer, size);
+  if (result < 0)
+    close();
+
+  // Process...
+
+  delete[] buffer;
   }
