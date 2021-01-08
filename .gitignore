@@ -3,6 +3,7 @@ todo
 docs
 books
 codility-lesson-solutions-cpp
+string-and-regular-expression/center-string.cpp
 
 *.tex
 
