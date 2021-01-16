@@ -54,11 +54,11 @@
   - [Show directory structure](streams-and-filesystems/ShowDirectoriesStructure.cpp)
 - String and regular expressions
   - [Conversion binary to string](string-and-regular-expression/BinaryToString.cpp)
-  - [Conversion string to binary](string-and-regular-expression/StringToBinary.cpp) :pencil2:
+  - [Conversion string to binary](string-and-regular-expression/StringToBinary.cpp)
   - [Joining string by delimiter](string-and-regular-expression/JoiningStringByDelimiter.cpp)
   - [Split string](string-and-regular-expression/SplitString.cpp)
   - [Extract url address](string-and-regular-expression/ExtractingUrlAddress.cpp)
   - [Capitalize](string-and-regular-expression/Capitalize.cpp)
-  - [Convert displaying date string](string-and-regular-expression/ConvertDateString.cpp) :pencil2:
-  - [Validate license plate](string-and-regular-expression/ValidateLicense.cpp) :pencil2:
+  - [Convert displaying date string](string-and-regular-expression/ConvertDateString.cpp)
+  - [Validate license plate](string-and-regular-expression/ValidateLicense.cpp)
 - [Benchmarks](benchmarks/)
