@@ -1,0 +1,84 @@
+#include <benchmark/benchmark.h>
+
+namespace
+{
+  constexpr int SIZE = 10000;
+} // namespace
+
+void push_back_with_reserve()
+{
+  std::vector<int> container;
+  container.reserve(SIZE);
+  for (int i = 0; i < SIZE; i++)
+  {
+    container.push_back(i);
+  }
+}
+
+void push_back_without_reserve()
+{
+  std::vector<int> container;
+  for (int i = 0; i < SIZE; i++)
+  {
+    container.push_back(i);
+  }
+}
+
+void emplace_back_with_reserve()
+{
+  std::vector<int> container;
+  container.reserve(SIZE);
+  for (int i = 0; i < SIZE; i++)
+  {
+    container.emplace_back(i);
+  }
+}
+
+void emplace_back_without_reserve()
+{
+  std::vector<int> container;
+  for (int i = 0; i < SIZE; i++)
+  {
+    container.emplace_back(i);
+  }
+}
+
+static void ContainerWithReserve_push_back(benchmark::State& state)
+{
+  // Code inside this loop is measured repeatedly
+  for (auto _ : state)
+  {
+    push_back_with_reserve();
+  }
+}
+// Register the function as a benchmark
+BENCHMARK(ContainerWithReserve_push_back);
+
+static void ContainerWithoutReserve_push_back(benchmark::State& state)
+{
+  for (auto _ : state)
+  {
+    push_back_without_reserve();
+  }
+}
+BENCHMARK(ContainerWithoutReserve_push_back);
+
+static void ContainerWithReserve_emplace_back(benchmark::State& state)
+{
+  for (auto _ : state)
+  {
+    emplace_back_with_reserve();
+  }
+}
+BENCHMARK(ContainerWithReserve_emplace_back);
+
+static void ContainerWithoutReserve_emplace_back(benchmark::State& state)
+{
+  for (auto _ : state)
+  {
+    emplace_back_without_reserve();
+  }
+}
+BENCHMARK(ContainerWithoutReserve_emplace_back);
+
+BENCHMARK_MAIN();

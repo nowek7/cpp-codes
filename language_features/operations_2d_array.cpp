@@ -14,13 +14,11 @@ private:
   std::vector<T> theContainer;
 
 public:
-  Array2D():
-    theContainer(R * C)
+  Array2D(): theContainer(R * C)
   {
   }
 
-  explicit Array2D(std::initializer_list<T> aSequence):
-    theContainer(aSequence)
+  explicit Array2D(std::initializer_list<T> aSequence): theContainer(aSequence)
   {
   }
 

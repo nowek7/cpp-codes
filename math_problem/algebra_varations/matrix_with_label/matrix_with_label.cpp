@@ -69,9 +69,7 @@ Matrix::Matrix()
   std::cout << "constructor " << N << "x" << M << " of matrix \n";
 }
 
-Matrix::Matrix(int n, int m):
-  N(n),
-  M(m)
+Matrix::Matrix(int n, int m): N(n), M(m)
 {
   std::cout << "constructor " << N << "x" << M << " of matrix \n";
   data = new double[N * M]{0};
@@ -107,9 +105,7 @@ Matrix::Matrix(std::initializer_list<std::initializer_list<double>> values)
   }
 }
 
-Matrix::Matrix(const Matrix& matrix):
-  N(matrix.N),
-  M(matrix.M)
+Matrix::Matrix(const Matrix& matrix): N(matrix.N), M(matrix.M)
 {
   std::cout << "copy constructor \n";
   data = new double[matrix.N * matrix.M];
@@ -216,30 +212,21 @@ class MatrixWithLabel: Matrix
 
 public:
   MatrixWithLabel() = default;
-  MatrixWithLabel(int numRows,
-                  int numCols,
-                  std::string label = "A"):
-    Matrix(numRows, numCols),
-    label(label)
+  MatrixWithLabel(int numRows, int numCols, std::string label = "A"): Matrix(numRows, numCols), label(label)
   {
   }
 
-  MatrixWithLabel(std::initializer_list<std::initializer_list<double>> values,
-                  std::string label = "A"):
-    Matrix(values),
-    label(label)
+  MatrixWithLabel(std::initializer_list<std::initializer_list<double>> values, std::string label = "A"):
+    Matrix(values), label(label)
   {
   }
 
-  MatrixWithLabel(const MatrixWithLabel& matrixWithLabel):
-    Matrix(matrixWithLabel),
-    label(matrixWithLabel.getLabel())
+  MatrixWithLabel(const MatrixWithLabel& matrixWithLabel): Matrix(matrixWithLabel), label(matrixWithLabel.getLabel())
   {
   }
 
   MatrixWithLabel(MatrixWithLabel&& matrixWithLabel):
-    Matrix(std::move(matrixWithLabel)),
-    label(std::move(matrixWithLabel.getLabel()))
+    Matrix(std::move(matrixWithLabel)), label(std::move(matrixWithLabel.getLabel()))
   {
   }
 

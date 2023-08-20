@@ -4,11 +4,8 @@
 #include <unordered_map>
 #include <vector>
 
-std::unordered_map<std::string_view, std::string> regexPlates
-{
-  {"PL", R"(([A-Z]{2,3})\s([A-Z0-9]{4,5}))"},
-  {"US", R"([A-Z]{3}-[A-Z]{2} \d{3,4})"}
-};
+std::unordered_map<std::string_view, std::string> regexPlates{{"PL", R"(([A-Z]{2,3})\s([A-Z0-9]{4,5}))"},
+                                                              {"US", R"([A-Z]{3}-[A-Z]{2} \d{3,4})"}};
 
 bool validateLicensePlateFormat(std::string_view aPlate)
 {
@@ -22,9 +19,7 @@ std::vector<std::string> extractLicensePlateNumbers(const std::string& aString)
   std::smatch match;
   std::vector<std::string> results{};
 
-  for (auto iter = std::sregex_iterator(aString.cbegin(), aString.cend(), rx);
-       iter != std::sregex_iterator();
-       ++iter)
+  for (auto iter = std::sregex_iterator(aString.cbegin(), aString.cend(), rx); iter != std::sregex_iterator(); ++iter)
   {
     if ((*iter)[1].matched)
     {

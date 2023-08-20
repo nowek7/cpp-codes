@@ -81,13 +81,11 @@ public:
   UniqueHandle(const UniqueHandle&) = delete;
   UniqueHandle& operator=(const UniqueHandle&) = delete;
 
-  explicit UniqueHandle(pointer aValue = Traits::invalid()) noexcept:
-    theValue{aValue}
+  explicit UniqueHandle(pointer aValue = Traits::invalid()) noexcept: theValue{aValue}
   {
   }
 
-  UniqueHandle(UniqueHandle&& aOther) noexcept:
-    theValue{aOther.release()}
+  UniqueHandle(UniqueHandle&& aOther) noexcept: theValue{aOther.release()}
   {
   }
 

@@ -4,8 +4,7 @@
 class Button
 {
 public:
-  Button(std::function<void(void)> aClick):
-    theOnClick{aClick}
+  Button(std::function<void(void)> aClick): theOnClick{aClick}
   {
   }
 

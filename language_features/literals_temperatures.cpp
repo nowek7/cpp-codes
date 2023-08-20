@@ -23,8 +23,7 @@ namespace Temperature
   class Quantity
   {
   public:
-    constexpr explicit Quantity(double aAmount):
-      theAmount(aAmount)
+    constexpr explicit Quantity(double aAmount): theAmount(aAmount)
     {
     }
 

@@ -4,9 +4,7 @@
 class TowerList
 {
 public:
-  TowerList():
-    theMaxHeightIdx{1},
-    theTowerHeights{25.0f, 44.0f, 12.0f}
+  TowerList(): theMaxHeightIdx{1}, theTowerHeights{25.0f, 44.0f, 12.0f}
   {
   }
 

@@ -12,8 +12,7 @@ public:
   friend void print(const BitsetWrapper& aBitsetWrapper);
 
   BitsetWrapper() = default;
-  BitsetWrapper(const std::vector<bool>& aBits):
-    theBits(aBits)
+  BitsetWrapper(const std::vector<bool>& aBits): theBits(aBits)
   {
   }
 

@@ -53,12 +53,22 @@ struct ImageFactory: public IImageFactory
 {
   virtual std::shared_ptr<Image> Create(std::string_view type) override
   {
-    static std::map<std::string, std::function<std::shared_ptr<Image>()>> factoryMap
-    {
-      { "bmp", []() { return std::make_shared<BitmapImage>(); } },
-      { "png", []() { return std::make_shared<PngImage>(); } },
-      { "jpg", []() { return std::make_shared<JpgImage>(); } }
-    };
+    static std::map<std::string, std::function<std::shared_ptr<Image>()>> factoryMap{
+      {"bmp",
+       []()
+       {
+         return std::make_shared<BitmapImage>();
+       }},
+      {"png",
+       []()
+       {
+         return std::make_shared<PngImage>();
+       }},
+      {"jpg",
+       []()
+       {
+         return std::make_shared<JpgImage>();
+       }}};
 
     auto it = factoryMap.find(type.data());
     return it != factoryMap.end() ? it->second() : nullptr;
@@ -82,12 +92,22 @@ private:
   static std::map<std::type_info const*, std::function<std::shared_ptr<Image>()>> factoryMap;
 };
 
-std::map<std::type_info const*, std::function<std::shared_ptr<Image>()>> ImageFactoryByType::factoryMap
-{
-  { &typeid(BitmapImage), []() { return std::make_shared<BitmapImage>(); } },
-  { &typeid(PngImage), []() { return std::make_shared<PngImage>(); } },
-  { &typeid(JpgImage), []() { return std::make_shared<JpgImage>(); } }
-};
+std::map<std::type_info const*, std::function<std::shared_ptr<Image>()>> ImageFactoryByType::factoryMap{
+  {&typeid(BitmapImage),
+   []()
+   {
+     return std::make_shared<BitmapImage>();
+   }},
+  {&typeid(PngImage),
+   []()
+   {
+     return std::make_shared<PngImage>();
+   }},
+  {&typeid(JpgImage),
+   []()
+   {
+     return std::make_shared<JpgImage>();
+   }}};
 
 int main()
 {

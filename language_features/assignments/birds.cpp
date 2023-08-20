@@ -7,9 +7,7 @@ class Bird
   std::string theString;
 
 public:
-  Bird()
-  {
-  }
+  Bird() = default;
 
   auto setSong(const std::string& aString) -> void
   {

@@ -24,9 +24,7 @@ int main()
     }
 
     checksum %= 11;
-    return (checksum == (static_cast<int>(aISBN.at(9)) - 48)) ?
-           "correct!" :
-           "incorrect";
+    return (checksum == (static_cast<int>(aISBN.at(9)) - 48)) ? "correct!" : "incorrect";
   };
 
   auto validateISBN_2v = [](std::string aISBN)
@@ -34,8 +32,7 @@ int main()
     auto valid = false;
 
     auto limit = 10;
-    if ((aISBN.size() == limit) &&
-        std::count_if(aISBN.begin(), aISBN.end(), isdigit) == limit)
+    if ((aISBN.size() == limit) && std::count_if(aISBN.begin(), aISBN.end(), isdigit) == limit)
     {
       auto filter = [&limit](int aTotal, char aSign)
       {

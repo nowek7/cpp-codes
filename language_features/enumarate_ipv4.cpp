@@ -9,24 +9,20 @@ private:
   std::array<unsigned char, 4> theData;
 
 public:
-  constexpr IPv4():
-    theData{{0}}
+  constexpr IPv4(): theData{{0}}
   {
   }
 
-  constexpr IPv4(unsigned char aPart0,
-                 unsigned char aPart1,
-                 unsigned char aPart2,
-                 unsigned char aPart3):
-    theData{{ aPart0, aPart1, aPart2, aPart3 }}
+  constexpr IPv4(unsigned char aPart0, unsigned char aPart1, unsigned char aPart2, unsigned char aPart3):
+    theData{{aPart0, aPart1, aPart2, aPart3}}
   {
   }
 
   explicit constexpr IPv4(unsigned long aData):
-    theData{ {static_cast<unsigned char>((aData >> 24) & 0xFF),
-              static_cast<unsigned char>((aData >> 16) & 0xFF),
-              static_cast<unsigned char>((aData >> 8) & 0xFF),
-              static_cast<unsigned char>((aData & 0xFF)) }}
+    theData{{static_cast<unsigned char>((aData >> 24) & 0xFF),
+             static_cast<unsigned char>((aData >> 16) & 0xFF),
+             static_cast<unsigned char>((aData >> 8) & 0xFF),
+             static_cast<unsigned char>((aData & 0xFF))}}
   {
   }
 

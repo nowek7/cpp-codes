@@ -35,9 +35,6 @@ int main()
     auto encodeGray = grayEncode(num);
     auto decodeGray = grayDecode(encodeGray);
 
-    std::cout << num << "\t" << toBinary(num, 5)
-                     << "\t" << toBinary(encodeGray, 5)
-                     << "\t" << decodeGray
-                     << "\n";
+    std::cout << num << "\t" << toBinary(num, 5) << "\t" << toBinary(encodeGray, 5) << "\t" << decodeGray << "\n";
   }
 }
