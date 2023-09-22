@@ -5,6 +5,7 @@ TabWidth: 2
 UseTab: Never
 IndentWidth: 2
 AlignAfterOpenBracket: Align
+AlignArrayOfStructures: Right
 AlignConsecutiveMacros: false
 AlignConsecutiveAssignments: false
 AllowAllArgumentsOnNextLine: false
@@ -14,7 +15,7 @@ AllowShortCaseLabelsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: Never
-AllowShortLambdasOnASingleLine: Inline
+AllowShortLambdasOnASingleLine: Empty
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: Yes
@@ -23,37 +24,40 @@ BinPackParameters: false
 BitFieldColonSpacing: After
 BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterCaseLabel: true
+  AfterCaseLabel: false
   AfterClass: true
-  AfterControlStatement: Always
+  AfterControlStatement: Never
   AfterFunction: true
-  AfterNamespace: true
+  AfterNamespace: false
   AfterStruct: true
   AfterEnum: true
   AfterUnion: true
   AfterExternBlock: true
   AfterObjCDeclaration: true
-  BeforeCatch: true
-  BeforeElse: true
-  BeforeLambdaBody: true
-  BeforeWhile: true
+  BeforeCatch: false
+  BeforeElse: false
+  BeforeLambdaBody: false
+  BeforeWhile: false
   SplitEmptyFunction: true
   SplitEmptyRecord: true
-  SplitEmptyNamespace: true
+  SplitEmptyNamespace: false
+BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeConceptDeclarations: false
+BreakBeforeTernaryOperators: false
 BreakAfterJavaFieldAnnotations: true
 BreakBeforeInheritanceComma: false
-BreakConstructorInitializersBeforeComma: false
 BreakConstructorInitializers: AfterColon
-# BreakInheritanceList: AfterComma
+BreakInheritanceList: AfterComma
 BreakStringLiterals: true
 ColumnLimit: 120
 CompactNamespaces: false
 ConstructorInitializerIndentWidth: 2
 ContinuationIndentWidth: 2
 Cpp11BracedListStyle: true
+FixNamespaceComments: true
 IncludeBlocks: Regroup
 IndentPPDirectives: BeforeHash
+IndentCaseLabels: true
 IncludeCategories:
   # Headers in "" with extension.
   - Regex: '"([A-Za-z0-9.\/-_])+"'
@@ -67,16 +71,19 @@ IncludeCategories:
   # Headers in <> without extension.
   - Regex: '<([A-Za-z0-9\/-_])+>'
     Priority: 4
+InsertBraces: true
+KeepEmptyLinesAtTheStartOfBlocks: false
 Language: Cpp
+MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
-# PackConstructorInitializers: NextLine
+PackConstructorInitializers: Never
 PointerAlignment: Left
-# QualifierAlignment: Custom
-# QualifierOrder: [ 'inline', 'constexpr', 'static' , 'const', 'volatile' , 'type' ]
-# ReferenceAlignment: Left
+QualifierAlignment: Custom
+QualifierOrder: [ 'inline', 'constexpr', 'static' , 'const', 'volatile' , 'type' ]
+ReferenceAlignment: Left
 ReflowComments: false
-# SeparateDefinitionBlocks: Always
-# SortIncludes: CaseSensitive
+SeparateDefinitionBlocks: Always
+SortIncludes: CaseSensitive
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
@@ -84,17 +91,20 @@ SpaceAfterTemplateKeyword: false
 SpaceAroundPointerQualifiers: Before
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeCaseColon: false
-SpaceBeforeCpp11BracedList: false
+SpaceBeforeCpp11BracedList: true
 SpaceBeforeCtorInitializerColon: false
 SpaceBeforeInheritanceColon: false
 SpaceBeforeParens: ControlStatements
 SpaceBeforeRangeBasedForLoopColon: false
 SpaceBeforeSquareBrackets: false
-SpaceInEmptyBlock: false
+SpaceInEmptyBlock: true
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
-# SpacesInAngles: Never
+SpacesInAngles: Never
 SpacesInCStyleCastParentheses: false
 SpacesInConditionalStatement: false
 SpacesInContainerLiterals: false
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: 1
 ...
