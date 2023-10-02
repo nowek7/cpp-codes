@@ -4,12 +4,15 @@ Standard: c++20
 TabWidth: 2
 UseTab: Never
 IndentWidth: 2
+AlignAfterOpenBracket: AlwaysBreak
 AlignAfterOpenBracket: Align
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
 AlignArrayOfStructures: Right
 AlignConsecutiveMacros: false
 AlignConsecutiveAssignments: false
-AllowAllArgumentsOnNextLine: false
-AllowAllParametersOfDeclarationOnNextLine: false
+AlignEscapedNewlines: Left
+AlignOperands: DontAlign
 AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
