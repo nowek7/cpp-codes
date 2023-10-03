@@ -1,7 +1,6 @@
 #include <iostream>
 
-namespace
-{
+namespace {
   constexpr int LIMIT = 10;
   constexpr int FACTOR_ONE = 3;
   constexpr int FACTOR_TWO = 5;
@@ -9,13 +8,10 @@ namespace
 
 int main()
 {
-  auto sum = []()
-  {
-    auto result = int{0};
-    for (int i = 1; i < LIMIT; ++i)
-    {
-      if (i % 3 == 0 || i % 5 == 0)
-      {
+  auto sum = []() {
+    auto result = int {0};
+    for (int i = 1; i < LIMIT; ++i) {
+      if (i % 3 == 0 || i % 5 == 0) {
         result += i;
       }
     }

@@ -24,13 +24,11 @@ int lcmr(InputIt first, InputIt last)
 int main()
 {
   std::vector<int> numbers;
-  for (int i = 0; i < LIMIT; ++i)
-  {
+  for (int i = 0; i < LIMIT; ++i) {
     numbers.push_back(i + 10);
   }
 
-  auto lcm = [](const std::vector<int>& aContainer)
-  {
+  auto lcm = [](const std::vector<int>& aContainer) {
     return lcmr(aContainer.begin(), aContainer.end());
   };
 

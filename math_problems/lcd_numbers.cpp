@@ -1,8 +1,7 @@
 #include <iostream>
 #include <random>
 
-namespace
-{
+namespace {
   constexpr int COUNT = 10;
   constexpr int MIN = 1;
   constexpr int MAX = 100;
@@ -10,8 +9,7 @@ namespace
 
 void print(int* aNumbers)
 {
-  for (int i = 0; i < COUNT - 1; i++)
-  {
+  for (int i = 0; i < COUNT - 1; i++) {
     printf("%d, ", aNumbers[i]);
   }
   printf("%d \n", aNumbers[COUNT - 1]);
@@ -23,16 +21,14 @@ void generateNumbers(int* aNumbers)
   std::mt19937 engine(rd());
   std::uniform_int_distribution<> uid(MIN, MAX);
 
-  for (int i = 0; i < COUNT; i++)
-  {
+  for (int i = 0; i < COUNT; i++) {
     aNumbers[i] = uid(engine);
   }
 }
 
 int gcd(const int a, const int b)
 {
-  if (a == 0)
-  {
+  if (a == 0) {
     return b;
   }
 
@@ -41,19 +37,16 @@ int gcd(const int a, const int b)
 
 int lcd(int* aNumbers)
 {
-  if (!aNumbers[0])
-  {
+  if (!aNumbers[0]) {
     throw std::logic_error("No numbers!");
   }
 
-  if (!aNumbers[1])
-  {
+  if (!aNumbers[1]) {
     return aNumbers[0];
   }
 
   int value = gcd(aNumbers[0], aNumbers[1]);
-  for (int i = 2; i < COUNT; i++)
-  {
+  for (int i = 2; i < COUNT; i++) {
     value = gcd(value, aNumbers[i]);
   }
 

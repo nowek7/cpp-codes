@@ -6,21 +6,17 @@
 
 int main()
 {
-  auto printAllArmstrongNumbersWithThreeDigits = [](bool aToPrint = false)
-  {
+  auto printAllArmstrongNumbersWithThreeDigits = [](bool aToPrint = false) {
     auto start = std::chrono::steady_clock::now();
-    for (auto i = 100; i < 1000; i++)
-    {
-      auto armstrongNum = int{0};
+    for (auto i = 100; i < 1000; i++) {
+      auto armstrongNum = int {0};
       auto num = i;
-      while (num != 0)
-      {
+      while (num != 0) {
         armstrongNum += std::pow(num % 10, 3);
         num /= 10;
       }
 
-      if (armstrongNum == i && aToPrint)
-      {
+      if (armstrongNum == i && aToPrint) {
         std::cout << i << std::endl;
       }
     }
@@ -32,29 +28,23 @@ int main()
               << std::endl;
   };
 
-  auto printAllArmstrongNumbersWithThreeDigits2 = [](bool aToPrint = false)
-  {
+  auto printAllArmstrongNumbersWithThreeDigits2 = [](bool aToPrint = false) {
     auto start = std::chrono::steady_clock::now();
-    for (int i = 100; i < 1000; i++)
-    {
+    for (int i = 100; i < 1000; i++) {
       std::vector<int> digits;
       int n = i;
-      while (n > 0)
-      {
+      while (n > 0) {
         digits.push_back(n % 10);
         n /= 10;
       }
 
-      int arm = std::accumulate(std::begin(digits),
-                                std::end(digits),
-                                0,
-                                [s = digits.size()](int const sum, int const digit)
-                                { return sum + static_cast<int>(std::pow(digit, s)); });
+      int arm =
+        std::accumulate(std::begin(digits), std::end(digits), 0, [s = digits.size()](int const sum, int const digit) {
+          return sum + static_cast<int>(std::pow(digit, s));
+        });
 
-      if (i == arm)
-      {
-        if (aToPrint)
-        {
+      if (i == arm) {
+        if (aToPrint) {
           std::cout << arm << std::endl;
         }
       }
@@ -68,20 +58,15 @@ int main()
   };
 
   // I think, it is not an elegant form.
-  auto printAllArmstrongNumbersWithThreeDigits3 = [](bool aToPrint = false)
-  {
+  auto printAllArmstrongNumbersWithThreeDigits3 = [](bool aToPrint = false) {
     auto start = std::chrono::steady_clock::now();
-    for (auto i = 1; i < 10; i++)
-    {
+    for (auto i = 1; i < 10; i++) {
       auto firstPart = std::pow(i, 3);
-      for (auto j = 0; j < 10; j++)
-      {
+      for (auto j = 0; j < 10; j++) {
         auto secondPart = std::pow(j, 3);
-        for (auto k = 0; k < 10; k++)
-        {
+        for (auto k = 0; k < 10; k++) {
           auto number = firstPart + secondPart + std::pow(k, 3);
-          if (number == ((i * 100) + (j * 10) + k) && aToPrint)
-          {
+          if (number == ((i * 100) + (j * 10) + k) && aToPrint) {
             std::cout << number << std::endl;
           }
         }

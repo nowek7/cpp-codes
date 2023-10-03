@@ -2,8 +2,7 @@
 #include <random>
 #include <vector>
 
-namespace
-{
+namespace {
   constexpr unsigned int COUNT_TEMPERATURES = 100;
   constexpr double MIN = -40;
   constexpr double MAX = 40;
@@ -16,8 +15,7 @@ std::vector<double> get_random_temperatures()
   std::uniform_real_distribution<double> urd(MIN, MAX);
 
   std::vector<double> random_temperatures(COUNT_TEMPERATURES);
-  for (auto i = 0; i < COUNT_TEMPERATURES; ++i)
-  {
+  for (auto i = 0; i < COUNT_TEMPERATURES; ++i) {
     random_temperatures[i] = urd(engine);
   }
 
@@ -26,16 +24,13 @@ std::vector<double> get_random_temperatures()
 
 double closest_temperature_to_zero(const std::vector<double>& random_temperatures)
 {
-  if (random_temperatures.size() == 0)
-  {
+  if (random_temperatures.size() == 0) {
     return 0.;
   }
 
   double min = random_temperatures[0];
-  for (auto it = random_temperatures.begin() + 1; it != random_temperatures.end(); ++it)
-  {
-    if (*it > 0. && (*it < min || min <= 0.))
-    {
+  for (auto it = random_temperatures.begin() + 1; it != random_temperatures.end(); ++it) {
+    if (*it > 0. && (*it < min || min <= 0.)) {
       min = *it;
     }
   }

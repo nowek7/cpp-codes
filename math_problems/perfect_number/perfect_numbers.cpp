@@ -4,21 +4,15 @@
 // O(sqrt(N))
 auto isPerfect(int aNumber) -> bool
 {
-  if (aNumber <= 0)
-  {
+  if (aNumber <= 0) {
     return false;
-  }
-  else
-  {
-    auto sum = int{0};
-    for (auto i = 1; i * i < aNumber; ++i)
-    {
-      if (aNumber % i == 0)
-      {
+  } else {
+    auto sum = int {0};
+    for (auto i = 1; i * i < aNumber; ++i) {
+      if (aNumber % i == 0) {
         sum += i;
 
-        if (i * i != aNumber)
-        {
+        if (i * i != aNumber) {
           sum += aNumber / i;
         }
       }
@@ -33,18 +27,13 @@ auto isPerfectUsingEuclidTheorem(int aNumber) -> bool
 {
   // 2^(p - 1) * (2^(p) - 1)
   // Use mersenne primes number.
-  if (aNumber <= 0)
-  {
+  if (aNumber <= 0) {
     return false;
-  }
-  else
-  {
-    int primes[8]{2, 3, 5, 7, 13, 17, 19, 31};
-    for (int i = 0; i < 8; ++i)
-    {
+  } else {
+    int primes[8] {2, 3, 5, 7, 13, 17, 19, 31};
+    for (int i = 0; i < 8; ++i) {
       int number = std::pow(2, primes[i] - 1) * (std::pow(2, primes[i]) - 1);
-      if (number == aNumber)
-      {
+      if (number == aNumber) {
         return true;
       }
     }
@@ -55,10 +44,8 @@ auto isPerfectUsingEuclidTheorem(int aNumber) -> bool
 
 int main()
 {
-  for (auto i = 1; i < 10'000; ++i)
-  {
-    if (isPerfectUsingEuclidTheorem(i))
-    {
+  for (auto i = 1; i < 10'000; ++i) {
+    if (isPerfectUsingEuclidTheorem(i)) {
       std::cout << i << std::endl;
     }
   }

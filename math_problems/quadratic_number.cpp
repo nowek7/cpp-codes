@@ -5,8 +5,7 @@
 #include <random>
 #include <set>
 
-namespace
-{
+namespace {
   constexpr int MIN = 1;
   constexpr int MAX = 1000;
 
@@ -18,11 +17,9 @@ namespace
 std::vector<int> getRandomSequence(int aSize)
 {
   std::vector<int> numbers;
-  while (numbers.size() <= aSize)
-  {
+  while (numbers.size() <= aSize) {
     const int number = uid(engine);
-    if (std::find(numbers.cbegin(), numbers.cend(), number) == numbers.cend())
-    {
+    if (std::find(numbers.cbegin(), numbers.cend(), number) == numbers.cend()) {
       numbers.push_back(number);
     }
   }
@@ -32,8 +29,7 @@ std::vector<int> getRandomSequence(int aSize)
 
 void printNumbers(const std::vector<int>& aNumbers)
 {
-  for (auto i = 0; i < aNumbers.size(); ++i)
-  {
+  for (auto i = 0; i < aNumbers.size(); ++i) {
     printf("%4d", aNumbers[i]);
   }
   printf("\n");
@@ -48,8 +44,7 @@ std::pair<int, int> getMinMax(const std::vector<int>& aNumbers)
 std::vector<int> getSquares(const int& aLimit)
 {
   std::vector<int> squares(aLimit);
-  for (int i = 0; i <= aLimit; i++)
-  {
+  for (int i = 0; i <= aLimit; i++) {
     squares.emplace_back(i * i);
   }
 
@@ -62,14 +57,11 @@ std::vector<std::pair<int, int>> getQuadraticPairs(const std::vector<int>& aNumb
   const auto& squares = getSquares(max);
 
   std::vector<std::pair<int, int>> pairs;
-  for (auto i = 0; i < aNumbers.size(); i++)
-  {
-    for (auto j = i + 1; j < aNumbers.size(); j++)
-    {
+  for (auto i = 0; i < aNumbers.size(); i++) {
+    for (auto j = i + 1; j < aNumbers.size(); j++) {
       const int result = aNumbers[i] * aNumbers[j];
       const bool found = std::binary_search(squares.cbegin(), squares.cend(), result);
-      if (found)
-      {
+      if (found) {
         pairs.emplace_back(aNumbers[i], aNumbers[j]);
       }
     }
@@ -80,8 +72,7 @@ std::vector<std::pair<int, int>> getQuadraticPairs(const std::vector<int>& aNumb
 
 void printQuadraticPairs(const std::vector<std::pair<int, int>>& aPairs)
 {
-  for (auto it = aPairs.cbegin(); it != aPairs.cend(); ++it)
-  {
+  for (auto it = aPairs.cbegin(); it != aPairs.cend(); ++it) {
     const auto& [left, right] = *it;
     printf("{%d, %d} -> %d\n", left, right, left * right);
   }
@@ -93,12 +84,10 @@ int main()
 
   std::vector<int> numbers;
   std::vector<std::pair<int, int>> pairs;
-  do
-  {
+  do {
     numbers = getRandomSequence(size);
     pairs = getQuadraticPairs(numbers);
-  }
-  while (pairs.empty());
+  } while (pairs.empty());
 
   printQuadraticPairs(pairs);
 }

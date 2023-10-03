@@ -9,10 +9,8 @@ unsigned int grayEncode(unsigned int number)
 
 unsigned int grayDecode(unsigned int gray)
 {
-  for (unsigned int bit = 1U << 31; bit > 1; bit >>= 1)
-  {
-    if (gray & bit)
-    {
+  for (unsigned int bit = 1U << 31; bit > 1; bit >>= 1) {
+    if (gray & bit) {
       gray ^= bit >> 1;
     }
   }
@@ -30,8 +28,7 @@ int main()
   std::cout << "Number\tBinary\tGray\tDecoded\n";
   std::cout << "------\t------\t----\t-------\n";
 
-  for (unsigned int num = 0; num < 32; ++num)
-  {
+  for (unsigned int num = 0; num < 32; ++num) {
     auto encodeGray = grayEncode(num);
     auto decodeGray = grayDecode(encodeGray);
 

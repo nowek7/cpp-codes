@@ -4,21 +4,22 @@
 
 unsigned int romanToNumber(std::string roman)
 {
-  std::unordered_map<char, unsigned int> ROMAN_NUMBERS
-  {
-    {'M', 1000}, {'D', 500}, {'C', 100}, {'L', 50},
-    {'X', 10}, {'IX', 9}, {'V', 5}, {'I', 1}
+  std::unordered_map<char, unsigned int> ROMAN_NUMBERS {
+    { 'M', 1000},
+    { 'D',  500},
+    { 'C',  100},
+    { 'L',   50},
+    { 'X',   10},
+    {'IX',    9},
+    { 'V',    5},
+    { 'I',    1}
   };
 
   unsigned int result = ROMAN_NUMBERS[roman.back()];
-  for (int i = roman.size() - 2; i >= 0; i--)
-  {
-    if (ROMAN_NUMBERS[roman[i]] >= ROMAN_NUMBERS[roman[i + 1]])
-    {
+  for (int i = roman.size() - 2; i >= 0; i--) {
+    if (ROMAN_NUMBERS[roman[i]] >= ROMAN_NUMBERS[roman[i + 1]]) {
       result += ROMAN_NUMBERS[roman[i]];
-    }
-    else
-    {
+    } else {
       result -= ROMAN_NUMBERS[roman[i]];
     }
   }

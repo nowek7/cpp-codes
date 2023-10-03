@@ -3,20 +3,16 @@
 
 bool isPrime(const int aNumber)
 {
-  if (aNumber < 2)
-  {
+  if (aNumber < 2) {
     return false;
   }
 
-  if (aNumber <= 3)
-  {
+  if (aNumber <= 3) {
     return true;
   }
 
-  for (int i = 2; i * i <= aNumber; i++)
-  {
-    if (aNumber % i == 0)
-    {
+  for (int i = 2; i * i <= aNumber; i++) {
+    if (aNumber % i == 0) {
       return false;
     }
   }
@@ -26,15 +22,12 @@ bool isPrime(const int aNumber)
 
 bool isPrime2(const int aNumber)
 {
-  if (((!(aNumber & 1)) && aNumber != 2) || (aNumber < 2) || (aNumber % 3 == 0 && aNumber != 3))
-  {
+  if (((aNumber & 1 == 0) && aNumber != 2) || (aNumber < 2) || (aNumber % 3 == 0 && aNumber != 3)) {
     return false;
   }
 
-  for (int k = 1; 36 * k * k - 12 * k < aNumber; ++k)
-  {
-    if ((aNumber % (6 * k + 1) == 0) || (aNumber % (6 * k - 1) == 0))
-    {
+  for (int k = 1; 36 * k * k - 12 * k < aNumber; ++k) {
+    if ((aNumber % (6 * k + 1) == 0) || (aNumber % (6 * k - 1) == 0)) {
       return false;
     }
   }
@@ -46,10 +39,8 @@ int main()
 {
   {
     auto start = std::chrono::high_resolution_clock::now();
-    for (auto i = 0; i < 100'000; i++)
-    {
-      if (isPrime(i))
-      {
+    for (auto i = 0; i < 100'000; i++) {
+      if (isPrime(i)) {
         continue;
       }
       // std::cout << i << " is prime number." << std::endl;
@@ -62,10 +53,8 @@ int main()
 
   {
     auto start = std::chrono::high_resolution_clock::now();
-    for (auto i = 0; i < 100'000; i++)
-    {
-      if (isPrime2(i))
-      {
+    for (auto i = 0; i < 100'000; i++) {
+      if (isPrime2(i)) {
         continue;
       }
       // std::cout << i << " is prime number." << std::endl;

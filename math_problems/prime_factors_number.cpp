@@ -4,26 +4,22 @@
 
 std::vector<unsigned long long> computerPrimeFractors(unsigned long long aNumber)
 {
-  auto primeFactors = std::vector<unsigned long long>{};
+  auto primeFactors = std::vector<unsigned long long> {};
 
-  while (aNumber % 2 == 0)
-  {
+  while (aNumber % 2 == 0) {
     primeFactors.push_back(2);
     aNumber /= 2;
   }
 
-  for (unsigned long long i = 3; i * i <= aNumber; i += 2)
-  {
-    while (aNumber % i == 0)
-    {
+  for (unsigned long long i = 3; i * i <= aNumber; i += 2) {
+    while (aNumber % i == 0) {
       primeFactors.push_back(i);
       aNumber /= i;
     }
   }
 
   // Number is prime number.
-  if (aNumber > 2)
-  {
+  if (aNumber > 2) {
     primeFactors.push_back(aNumber);
   }
 

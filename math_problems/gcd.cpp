@@ -7,21 +7,15 @@ unsigned int gcd2(unsigned int a, unsigned int b)
 
 int main()
 {
-  auto gcd1 = [](unsigned int a, unsigned int b)
-  {
-    if (b == 0)
-    {
+  auto gcd1 = [](unsigned int a, unsigned int b) {
+    if (b == 0) {
       return a;
     }
 
-    while (a != b)
-    {
-      if (a < b)
-      {
+    while (a != b) {
+      if (a < b) {
         b -= a;
-      }
-      else
-      {
+      } else {
         a -= b;
       }
     }
@@ -29,10 +23,8 @@ int main()
     return a;
   };
 
-  auto gcd3 = [](unsigned int a, unsigned int b)
-  {
-    while (b != 0)
-    {
+  auto gcd3 = [](unsigned int a, unsigned int b) {
+    while (b != 0) {
       unsigned int r = a % b;
       a = b;
       b = r;
