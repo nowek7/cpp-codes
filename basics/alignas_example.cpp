@@ -2,42 +2,42 @@
 
 // size = 1, alignment = 1
 struct foo1
-  {
+{
   char a;
-  };
+};
 
 // size = 2, alignment = 1
 struct foo2
-  {
+{
   char a;
   char b;
-  };
+};
 
 // size = 8, alignment = 4
 struct foo3
-  {
+{
   char a;
-  int  b;
-  };
+  int b;
+};
 
 struct foo3_
-  {
+{
   char a;      // 1 byte
   char pad[3]; // 3 bytes padding to put b on a 4-byte boundary
-  int  b;      // 4 bytes
-  };
+  int b;       // 4 bytes
+};
 
 struct foo4
-  {
+{
   int a;
   char b;
   float c;
   double d;
   bool e;
-  };
+};
 
 struct foo4_
-  {
+{
   int a;        // 4 bytes
   char b;       // 1 byte
   char pad0[3]; // 3 bytes padding to put c on a 8-byte boundary
@@ -46,46 +46,46 @@ struct foo4_
   double d;     // 8 bytes
   bool e;       // 1 byte
   char pad2[7]; // 7 bytes padding to make sizeof struct multiple of 8
-  };
+};
 
 int main()
+{
   {
-    {
     struct alignas(4) foo
-      {
+    {
       char a;
       char b;
-      };
+    };
 
     struct foo_
-      {
+    {
       char a;
       char b;
       char pad[2];
-      };
-    }
+    };
+  }
 
-    {
+  {
     struct alignas(4) foo
-      {
+    {
       alignas(2) char a;
       alignas(8) int b;
-      };
+    };
 
     struct foo_
-      {
+    {
       char a;
       char pad0[7];
       int b;
       char pad1[4];
-      };
-    }
+    };
+  }
 
-    {
+  {
     alignas(8) int a;
     alignas(256) long b[4];
 
     printf("%p\n", &a);
     printf("%p\n", &b);
-    }
   }
+}

@@ -1,18 +1,18 @@
-#include <iostream>
-#include <thread>
 #include <future>
-#include <random>
+#include <iostream>
 #include <mutex>
+#include <random>
+#include <thread>
 
 std::mutex g_mutex;
 
-void produceValue(std::promise<int> &aPromise)
+void produceValue(std::promise<int>& aPromise)
+{
+  // simulate long running operation
   {
-    // simulate long running operation
-    {
     using namespace std::chrono_literals;
     std::this_thread::sleep_for(2s);
-    }
+  }
 
   std::random_device rd;
   std::mt19937_64 engine(rd());
@@ -20,18 +20,18 @@ void produceValue(std::promise<int> &aPromise)
 
   auto value = uid(engine);
   aPromise.set_value(value);
-  }
+}
 
-void consumeValue(std::future<int> &aFuture)
-  {
+void consumeValue(std::future<int>& aFuture)
+{
   auto value = aFuture.get();
 
   std::lock_guard<std::mutex> lock(g_mutex);
   std::cout << value << std::endl;
-  }
+}
 
 int main()
-  {
+{
   std::promise<int> p;
   std::thread t1(produceValue, std::ref(p));
 
@@ -40,4 +40,4 @@ int main()
 
   t1.join();
   t2.join();
-  }
+}

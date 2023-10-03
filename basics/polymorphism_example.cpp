@@ -2,65 +2,65 @@
 #include <memory>
 
 class Base
+{
+public:
+  int baseClassPublicValue {10};
+
+  void baseClassFunction()
   {
-  public:
-    int baseClassPublicValue {10};
+    std::cout << "Base class function." << std::endl;
+  }
 
-    void baseClassFunction()
-      {
-      std::cout << "Base class function." << std::endl;
-      }
-
-    virtual void virtualBaseClassFunction()
-      {
-      std::cout << "Base class virtual function." << std::endl;
-      }
-
-  private:
-    int baseClassPrivateValue {20};
-
-  protected:
-    int baseClassProtectedValue {30};
-  };
-
-class Child : public Base
+  virtual void virtualBaseClassFunction()
   {
-  public:
-    int childClassPublicValue {10};
+    std::cout << "Base class virtual function." << std::endl;
+  }
 
-    void childClassFunction()
-      {
-      std::cout << "Child class function." << std::endl;
-      }
+private:
+  int baseClassPrivateValue {20};
 
-    void virtualBaseClassFunction()
-      {
-      std::cout << "Child class virtual function." << std::endl;
-      }
+protected:
+  int baseClassProtectedValue {30};
+};
 
-  private:
-    int childClassPrivateValue {20};
-  };
+class Child: public Base
+{
+public:
+  int childClassPublicValue {10};
+
+  void childClassFunction()
+  {
+    std::cout << "Child class function." << std::endl;
+  }
+
+  void virtualBaseClassFunction()
+  {
+    std::cout << "Child class virtual function." << std::endl;
+  }
+
+private:
+  int childClassPrivateValue {20};
+};
 
 class OtherBaseClass
-  {
-  public:
-    /* pure virtual function that makes OtherBaseClass abstract */
-    virtual void pureVirtualOtherBaseClassFunction() = 0;
-  };
+{
+public:
+  /* pure virtual function that makes OtherBaseClass abstract */
+  virtual void pureVirtualOtherBaseClassFunction() = 0;
+};
 
-class OtherChildClass : public OtherBaseClass
+class OtherChildClass: public OtherBaseClass
+{
+public:
+  /* define this function is mandatory as it is pure virtual into the base */
+  void pureVirtualOtherBaseClassFunction()
   {
-  public:
-    /* define this function is mandatory as it is pure virtual into the base */
-    void pureVirtualOtherBaseClassFunction()
-      {
-      std::cout << "Other base class pure virtual function definition." << std::endl;
-      }
-  };
+    std::cout << "Other base class pure virtual function definition." << std::endl;
+  }
+};
 
 int main()
-  {
+{
   /* Create a Base pointer to a Child object */
   std::unique_ptr<Base> basePointer = std::make_unique<Child>();
 
@@ -89,4 +89,4 @@ int main()
   /* it is possible to create abstract base class pointer to child class object */
   std::unique_ptr<OtherBaseClass> otherBasePointer = std::make_unique<OtherChildClass>();
   otherBasePointer->pureVirtualOtherBaseClassFunction();
-  }
+}

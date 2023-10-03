@@ -1,16 +1,15 @@
 #include <array>
 #include <iostream>
 
-namespace ComputerUnits
+namespace ComputerUnits {
+  constexpr size_t operator"" _KB(const unsigned long long aSize)
   {
-  constexpr size_t operator "" _KB(const unsigned long long aSize)
-    {
     return static_cast<size_t>(aSize * 1024);
-    }
-  } // ComputerUnits
+  }
+} // namespace ComputerUnits
 
 int main()
-  {
+{
   using namespace ComputerUnits;
 
   auto memory = 4_KB;
@@ -19,5 +18,5 @@ int main()
   auto size = 8_KB;
   std::cout << size << std::endl;
 
-  auto buffer = std::array<std::byte, 1_KB>{};
-  }
+  auto buffer = std::array<std::byte, 1_KB> {};
+}
