@@ -13,7 +13,7 @@ public:
 
   TftpClient& operator=(const TftpClient&) = delete;
 
-  bool startDownload(const std::string remotePath, const std::string destPath);
+  void startDownload(const std::string remotePath, const std::string destPath);
 
 private:
   std::string theServerIp;

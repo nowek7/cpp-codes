@@ -16,30 +16,10 @@ TftpClient::TftpClient(const std::string serverIp, const uint16_t port):
 {
 }
 
-bool TftpClient::startDownload(const std::string remotePath, const std::string destPath)
+void TftpClient::startDownload(const std::string remotePath, const std::string destPath)
 {
   std::thread worker(&TftpClient::downloadFile, this, remotePath, destPath);
-  worker.join();
-
-  {
-    std::unique_lock<std::mutex> lock(theLockDownload);
-    theDownloaded.wait_for(lock, 15s); // 12s ~ 30MB
-  }
-
-  struct stat buffer;
-  bool downloaded = false;
-  if (stat(destPath.c_str(), &buffer) == 0 && buffer.st_size > 0) {
-    std::cout << "File exist!\n";
-    downloaded = true;
-  }
-
-  if (downloaded) {
-    std::cout << "File is downloaded \n";
-  } else {
-    std::cout << "File is not downloaded \n";
-  }
-
-  return downloaded;
+  worker.detach();
 }
 
 void TftpClient::downloadFile(const std::string remotePath, const std::string destPath)
@@ -62,11 +42,20 @@ void TftpClient::downloadFile(const std::string remotePath, const std::string de
         nullptr
       };
 
-      const int res = execv(args[0], const_cast<char**>(args));
-      if (res < 0) {
-        throw std::runtime_error("Failed to execute command!");
-      }
+      execv(args[0], const_cast<char**>(args));
       exit(0);
+    } else {
+      waitpid(child, nullptr, 0);
+
+      struct stat buffer;
+      if (stat(destPath.c_str(), &buffer) == 0) {
+        std::cout << "Downloaded : " << buffer.st_size << "bytes \n" << std::endl;
+
+        const char* args[] = {"/bin/chmod", "+x", "./data/local_temp.pdf", nullptr};
+        execv(args[0], const_cast<char**>(args));
+      } else {
+        std::cout << "File not downloaded !\n";
+      }
     }
   } catch (const std::exception& ex) {
     std::cout << ex.what() << std::endl;
