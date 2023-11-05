@@ -4,8 +4,7 @@ Standard: c++20
 TabWidth: 2
 UseTab: Never
 IndentWidth: 2
-AlignAfterOpenBracket: AlwaysBreak
-AlignAfterOpenBracket: Align
+AlignAfterOpenBracket: BlockIndent
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AlignArrayOfStructures: Right
