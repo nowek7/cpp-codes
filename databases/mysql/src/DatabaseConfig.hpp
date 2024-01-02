@@ -1,0 +1,17 @@
+#pragma once
+
+#include <string>
+
+struct DatabaseConfig
+{
+  std::string theHost;
+  std::string theUser;
+  std::string thePassword;
+  std::string theDatabase;
+  int thePort;
+
+  bool isSet() const
+  {
+    return theHost.size() > 0 && theUser.size() > 0 && thePassword.size() > 0 && thePort > 0;
+  }
+};
