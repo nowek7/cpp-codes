@@ -19,3 +19,6 @@ endif
 
 pretty_all:
 	@find ./ -type f \( -name '*.c' -o -name '*.cpp' \) -exec ${CLANG_FORMAT} ${FLAGS} {} \;
+
+clean:
+	@find ./ -type f \( -name '*.o' -o -name '*output*' \) -exec rm {} \;
