@@ -4,6 +4,7 @@
 *.tex
 
 *.png
+!benchmarks/**/*.png
 
 ### C++ ###
 # Prerequisites
